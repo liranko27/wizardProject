@@ -21,3 +21,8 @@ label {
     border: 1px solid red;
     background-color: salmon;
 }
+
+a {
+    text-decoration: none;
+    color: black;
+}

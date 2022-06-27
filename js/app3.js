@@ -4,6 +4,8 @@ const image = document.querySelector('.img-prev')
 const imageSrc = document.querySelector('#img-src')
 const continueBtn = document.querySelector('.continue-btn')
 const prevBtn = document.querySelector('.prev-btn')
+
+
 async function getData (){
     const resp = await fetch('../data/hobbies.json')
     const data = await resp.json()

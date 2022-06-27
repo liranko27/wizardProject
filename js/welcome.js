@@ -14,7 +14,6 @@ continueBtn.addEventListener('click',()=>{
     }
 })
 
-
 function createFormFlowObj(){
     const formFlow = {
         welcome:true,
@@ -34,7 +33,9 @@ function initWizardDetailsObj(){
             birthDate:'',
         },
         phase2:{
-            address:'',
+            city:'',
+            street:'',
+            num:'',
         },
         phase3:{
            imgSrc:'',
