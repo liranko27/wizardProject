@@ -10,11 +10,18 @@ const streetInput = document.querySelector("#street_input");
 const numberInput = document.querySelector("#number_input");
 const inputsArray = [streetInput, numberInput, cityInput];
 const wizardDetailsObj = JSON.parse(localStorage.getItem("wizardDetailsObj"));
-if (wizardDetailsObj.phase2) {
-  cityInput.value = wizardDetailsObj.phase2.city;
-  streetInput.value = wizardDetailsObj.phase2.street;
-  numberInput.value = wizardDetailsObj.phase2.number;
+const formFlow = JSON.parse(localStorage.getItem("formFlow"));
+
+if (formFlow.phase1) {
+  if (wizardDetailsObj.phase2) {
+    cityInput.value = wizardDetailsObj.phase2.city;
+    streetInput.value = wizardDetailsObj.phase2.street;
+    numberInput.value = wizardDetailsObj.phase2.number;
+  }
+} else {
+  console.log("hey");
 }
+
 const isCityInputValid = () => {
   return cityInput.value;
 };
@@ -34,6 +41,12 @@ const markInputIfValid = (input, valid) => {
     input.classList.add("is-invalid");
   }
 };
+const updateDetailsLocalStorage = () => {
+  wizardDetailsObj.phase2.city = cityInput.value;
+  wizardDetailsObj.phase2.street = streetInput.value;
+  wizardDetailsObj.phase2.number = numberInput.value;
+  localStorage.setItem("wizardDetailsObj", JSON.stringify(wizardDetailsObj));
+};
 
 nextBtn.addEventListener("click", () => {
   markInputIfValid(cityInput, isCityInputValid);
@@ -42,9 +55,12 @@ nextBtn.addEventListener("click", () => {
   for (const input of inputsArray) {
     if (input.classList.contains("is-invalid")) return;
   }
+  updateDetailsLocalStorage();
+  formFlow.phase2 = true;
+  location.href("../pages/phase3.html");
+});
 
-  wizardDetailsObj.phase2.city = cityInput.value;
-  wizardDetailsObj.phase2.street = streetInput.value;
-  wizardDetailsObj.phase2.number = numberInput.value;
-  location.href("../phase3.html");
+previousBtn.addEventListener("click", () => {
+  updateDetailsLocalStorage();
+  localStorage.href("../pages/phase1.html");
 });
