@@ -5,6 +5,26 @@ const imageSrc = document.querySelector('#img-src')
 const continueBtn = document.querySelector('.continue-btn')
 const prevBtn = document.querySelector('.prev-btn')
 
+const formFlow = JSON.parse(localStorage.getItem("formFlow"));
+const wizardDetailsObj = JSON.parse(localStorage.getItem("wizardDetailsObj"));
+
+if (!formFlow) window.location.replace("../pages/welcome.html");
+
+for (const page in formFlow) {
+  if (!formFlow[page]) {
+    window.location.replace(`../pages/${page}.html`);
+    break;
+  }
+}
+const updateInputsValues = () => {
+    if(wizardDetailsObj.phase3.imgSrc !== ''){
+        imageSrc.value = wizardDetailsObj.phase3.imgSrc;
+        image.src = wizardDetailsObj.phase3.imgSrc
+        image.classList.remove('hidden')
+    }
+};
+
+updateInputsValues();
 
 async function getData (){
     const resp = await fetch('../data/hobbies.json')
@@ -12,7 +32,7 @@ async function getData (){
     printHobbies(data)
 }
 getData()
-
+        
 function printHobbies(hobbies){
     hobbiesWrap.innerHTML=''
     hobbies.forEach(hobby => {
@@ -20,6 +40,9 @@ function printHobbies(hobbies){
         const checkboxInput = document.createElement('input')
         checkboxInput.type='checkbox'
         checkboxInput.id = hobby.name
+        if(wizardDetailsObj.phase3.hobbies.includes(hobby.name)){
+            checkboxInput.checked=true
+        }
         const label = document.createElement('label')
         label.setAttribute('for',hobby.name)
         label.innerText=hobby.name
@@ -28,14 +51,13 @@ function printHobbies(hobbies){
         hobbiesWrap.appendChild(divWrap)
     });
 }
-
+        
 //Event listeners
-
 imageSrc.addEventListener('change',()=>{
     image.classList.remove('hidden')
     image.src=imageSrc.value
 })
-
+        
 continueBtn.addEventListener('click',()=>{
     const hobbies= []
     const localData = JSON.parse(localStorage.getItem('wizardDetailsObj'))
@@ -56,7 +78,7 @@ continueBtn.addEventListener('click',()=>{
         window.location.replace('phase4.html')
     }
 })
-
+        
 prevBtn.addEventListener('click',()=>{
     window.location.replace('phase2.html')
 })
