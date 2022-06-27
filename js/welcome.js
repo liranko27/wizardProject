@@ -34,7 +34,9 @@ function initWizardDetailsObj(){
             birthDate:'',
         },
         phase2:{
-            address:'',
+            city:'',
+            street:'',
+            num:'',
         },
         phase3:{
            imgSrc:'',
