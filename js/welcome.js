@@ -8,12 +8,12 @@ continueBtn.addEventListener('click',()=>{
         console.log('Yes')
         createFormFlowObj()
         initWizardDetailsObj()
+        window.location.replace('phase1.html')
     }
     else{
         agreeWrap.classList.add('wrong-input')
     }
 })
-
 
 function createFormFlowObj(){
     const formFlow = {
@@ -34,7 +34,9 @@ function initWizardDetailsObj(){
             birthDate:'',
         },
         phase2:{
-            address:'',
+            city:'',
+            street:'',
+            num:'',
         },
         phase3:{
            imgSrc:'',
