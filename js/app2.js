@@ -13,8 +13,6 @@ const numberInput = document.querySelector("#number_input");
 const inputsArray = [streetInput, numberInput, cityInput];
 const wizardDetailsObj = JSON.parse(localStorage.getItem("wizardDetailsObj"));
 
-if (!formFlow) window.location.replace("../pages/welcome.html");
-
 // for (const page in formFlow) {
 //   if (!formFlow[page]) {
 //     window.location.replace(`../pages/${page}.html`);
