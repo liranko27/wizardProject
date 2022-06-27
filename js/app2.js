@@ -1,26 +1,34 @@
 // const getData = async () => {
 //   const res = await fetch("../data/cities.json");
-//   const data = await res.json();
-//   console.log(data);
+
+//   // const data = await res.json();
+//   // console.log(data);
 // };
 // getData();
 const cityInput = document.querySelector("#city_input");
 const nextBtn = document.querySelector("#next_btn");
+const previousBtn = document.querySelector("#previous_btn");
 const streetInput = document.querySelector("#street_input");
 const numberInput = document.querySelector("#number_input");
 const inputsArray = [streetInput, numberInput, cityInput];
 const wizardDetailsObj = JSON.parse(localStorage.getItem("wizardDetailsObj"));
 const formFlow = JSON.parse(localStorage.getItem("formFlow"));
 
-if (formFlow.phase1) {
-  if (wizardDetailsObj.phase2) {
-    cityInput.value = wizardDetailsObj.phase2.city;
-    streetInput.value = wizardDetailsObj.phase2.street;
-    numberInput.value = wizardDetailsObj.phase2.number;
+if (!formFlow) window.location.replace("../pages/welcome.html");
+
+for (const page in formFlow) {
+  if (!formFlow[page]) {
+    window.location.replace(`../pages/${page}.html`);
+    break;
   }
-} else {
-  console.log("hey");
 }
+const updateInputsValues = () => {
+  cityInput.value = wizardDetailsObj.phase2.city;
+  streetInput.value = wizardDetailsObj.phase2.street;
+  numberInput.value = wizardDetailsObj.phase2.num;
+};
+
+updateInputsValues();
 
 const isCityInputValid = () => {
   return cityInput.value;
@@ -44,23 +52,34 @@ const markInputIfValid = (input, valid) => {
 const updateDetailsLocalStorage = () => {
   wizardDetailsObj.phase2.city = cityInput.value;
   wizardDetailsObj.phase2.street = streetInput.value;
-  wizardDetailsObj.phase2.number = numberInput.value;
+  wizardDetailsObj.phase2.num = numberInput.value;
   localStorage.setItem("wizardDetailsObj", JSON.stringify(wizardDetailsObj));
 };
-
-nextBtn.addEventListener("click", () => {
+const updateFormFlowLocalStorage = (valid) => {
+  valid ? (formFlow.phase2 = true) : (formFlow.phase2 = false);
+};
+const isFormValid = () => {
   markInputIfValid(cityInput, isCityInputValid);
   markInputIfValid(streetInput, isStreetValid);
   markInputIfValid(numberInput, isNumberValid);
   for (const input of inputsArray) {
-    if (input.classList.contains("is-invalid")) return;
+    if (input.classList.contains("is-invalid")) {
+      updateFormFlowLocalStorage(false);
+      return;
+    }
   }
+  updateFormFlowLocalStorage(true);
+  return true;
+};
+
+nextBtn.addEventListener("click", () => {
+  if (!isFormValid()) return;
   updateDetailsLocalStorage();
-  formFlow.phase2 = true;
-  location.href("../pages/phase3.html");
+  window.location.replace("../pages/phase3.html");
 });
 
 previousBtn.addEventListener("click", () => {
+  isFormValid();
   updateDetailsLocalStorage();
-  localStorage.href("../pages/phase1.html");
+  window.location.replace("../pages/phase1.html");
 });
