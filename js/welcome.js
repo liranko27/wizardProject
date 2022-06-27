@@ -14,7 +14,6 @@ continueBtn.addEventListener('click',()=>{
     }
 })
 
-
 function createFormFlowObj(){
     const formFlow = {
         welcome:true,
