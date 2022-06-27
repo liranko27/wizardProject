@@ -1,0 +1,23 @@
+.hobbies-wrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width:770px) {
+    .hobbies-wrap {
+        display: block;
+    }
+}
+
+label {
+    margin: 0 .5rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.wrong-input {
+    border: 1px solid red;
+    background-color: salmon;
+}
