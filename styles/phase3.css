@@ -7,6 +7,10 @@
     .hobbies-wrap {
         display: block;
     }
+
+    .img-prev {
+        margin: 0 auto;
+    }
 }
 
 label {
@@ -25,4 +29,9 @@ label {
 a {
     text-decoration: none;
     color: black;
+}
+
+.img-prev {
+    max-width: 20rem;
+    border-radius: 50px;
 }
