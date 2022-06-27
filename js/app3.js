@@ -3,7 +3,7 @@ const hobbiesWrap = document.querySelector('.hobbies-wrap')
 const image = document.querySelector('.img-prev')
 const imageSrc = document.querySelector('#img-src')
 const continueBtn = document.querySelector('.continue-btn')
-
+const prevBtn = document.querySelector('.prev-btn')
 async function getData (){
     const resp = await fetch('../data/hobbies.json')
     const data = await resp.json()
@@ -53,4 +53,8 @@ continueBtn.addEventListener('click',()=>{
         localStorage.setItem('wizardDetailsObj',JSON.stringify(localData))
         window.location.replace('phase4.html')
     }
+})
+
+prevBtn.addEventListener('click',()=>{
+    window.location.replace('phase2.html')
 })
