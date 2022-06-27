@@ -8,6 +8,7 @@ continueBtn.addEventListener('click',()=>{
         console.log('Yes')
         createFormFlowObj()
         initWizardDetailsObj()
+        window.location.replace('phase1.html')
     }
     else{
         agreeWrap.classList.add('wrong-input')
