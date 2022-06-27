@@ -1,0 +1,12 @@
+.card {
+    margin-top: 5rem;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.wrong-input {
+    border: 1px solid red;
+    background-color: salmon;
+}
