@@ -36,7 +36,7 @@ const isCityInputValid = () => {
   return cityInput.value;
 };
 const isStreetValid = () => {
-  return streetInput.value.match(/^[a-zA-Z\.-]+$/);
+  return streetInput.value.match(/^[a-zA-Z\.\s\-]+$/);
 };
 const isNumberValid = () => {
   return Number(numberInput.value) > 0;
@@ -66,22 +66,21 @@ const isFormValid = () => {
   markInputIfValid(numberInput, isNumberValid);
   for (const input of inputsArray) {
     if (input.classList.contains("is-invalid")) {
-      updateFormFlowLocalStorage(false);
       return;
     }
   }
-  updateFormFlowLocalStorage(true);
   return true;
 };
 
 nextBtn.addEventListener("click", () => {
   if (!isFormValid()) return;
+  updateFormFlowLocalStorage(true);
   updateDetailsLocalStorage();
   window.location.replace("../pages/phase3.html");
 });
 
 previousBtn.addEventListener("click", () => {
-  isFormValid();
+  updateFormFlowLocalStorage(false);
   updateDetailsLocalStorage();
   window.location.replace("../pages/phase1.html");
 });

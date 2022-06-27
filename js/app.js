@@ -6,6 +6,9 @@ if (!formFlow) window.location.replace("../pages/welcome.html");
 
 for (const page in formFlow) {
   if (!formFlow[page]) {
+    if (window.location.href.includes(page)) {
+      break;
+    }
     window.location.replace(`../pages/${page}.html`);
     break;
   }
