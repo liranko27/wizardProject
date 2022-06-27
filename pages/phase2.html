@@ -36,14 +36,15 @@
     </header>
     <main class="container mt-5 p-5">
       <div class="row">
-        <div class="col-4">
+        <div class="col-lg-4 col-8">
           <label for="city_input"><h4>City</h4></label
           ><select
             id="city_input"
             class="form-select form-select-lg mb-3"
             aria-label=".form-select-lg example"
+            required
           >
-            <option selected>Open this select menu</option>
+            <option selected value="">Open this select menu</option>
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
@@ -51,9 +52,10 @@
         </div>
       </div>
       <div class="row mt-4">
-        <div class="col-4">
+        <div class="col-lg-4 col-8">
           <label for="street_input"><h4>Street</h4></label>
           <input
+          required
             type="text"
             class="form-control"
             aria-label="Street"
@@ -61,9 +63,10 @@
           />
         </div>
 
-        <div class="col-2">
-          <label for="street_input"><h4>Number</h4></label>
+        <div class="col-lg-2 col-4">
+          <label for="number_input"><h4>Number</h4></label>
           <input
+          required
             type="number"
             class="form-control"
             aria-label="Number"
@@ -74,18 +77,19 @@
       </div>
       <div class="row justify-content-between mt-5">
         <div class="col-2 justify-content-start d-flex">
-            <button type="button" class="btn btn-dark">Previous</button>
+            <button type="button" id='previous_btn' class="btn btn-dark">Previous</button>
         </div>
         <div class="col-2 justify-content-end d-flex"">
-            <button type="button" class="btn btn-primary">Next</button>
+            <button type="button" id="next_btn" class="btn btn-primary">Next</button>
            
         </div>
       </div>
     </main>
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-      crossorigin="anonymous"
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"
     ></script>
+    <script src="../js/app2.js"></script>
   </body>
 </html>
