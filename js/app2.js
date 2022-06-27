@@ -12,16 +12,15 @@ const streetInput = document.querySelector("#street_input");
 const numberInput = document.querySelector("#number_input");
 const inputsArray = [streetInput, numberInput, cityInput];
 const wizardDetailsObj = JSON.parse(localStorage.getItem("wizardDetailsObj"));
-const formFlow = JSON.parse(localStorage.getItem("formFlow"));
 
 if (!formFlow) window.location.replace("../pages/welcome.html");
 
-for (const page in formFlow) {
-  if (!formFlow[page]) {
-    window.location.replace(`../pages/${page}.html`);
-    break;
-  }
-}
+// for (const page in formFlow) {
+//   if (!formFlow[page]) {
+//     window.location.replace(`../pages/${page}.html`);
+//     break;
+//   }
+// }
 const updateInputsValues = () => {
   cityInput.value = wizardDetailsObj.phase2.city;
   streetInput.value = wizardDetailsObj.phase2.street;
