@@ -71,5 +71,9 @@ continueBtn.addEventListener("click", () => {
 });
 
 prevBtn.addEventListener("click", () => {
+    const update = formFlow
+    update.phase3 = false
+    update.phase2 = false
+    localStorage.setItem('formFlow',JSON.stringify(update))
   window.location.replace("phase2.html");
 });
