@@ -5,7 +5,7 @@
     overflow-y: scroll;
 }
 
-@media (max-width:770px) {
+@media (max-width:1400px) {
     .hobbies-wrap {
         display: block;
     }
