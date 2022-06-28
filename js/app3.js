@@ -57,12 +57,12 @@ continueBtn.addEventListener("click", () => {
   checkedInputs.forEach((input) => {
     hobbies.push(input.nextElementSibling.innerText);
   });
-  if (!hobbies.length) {
+  if (hobbies.length === 0) {
     hobbiesWrap.classList.add("wrong-input");
   }
   if (!imageSrc.value) {
     imageSrc.classList.add("wrong-input");
-  } else {
+  } else if(hobbies.length && imageSrc.value){
     localData.phase3.hobbies = hobbies;
     localData.phase3.imgSrc = imageSrc.value;
     localStorage.setItem("wizardDetailsObj", JSON.stringify(localData));
