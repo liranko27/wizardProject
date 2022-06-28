@@ -26,7 +26,7 @@ function printHobbies(hobbies) {
   hobbiesWrap.innerHTML = "";
   hobbies.forEach((hobby) => {
     const divWrap = document.createElement("div");
-    divWrap.classList.add('d-flex')
+    divWrap.classList.add("d-flex");
     const checkboxInput = document.createElement("input");
     checkboxInput.type = "checkbox";
     checkboxInput.id = hobby.name;
@@ -59,24 +59,31 @@ continueBtn.addEventListener("click", () => {
   });
   if (hobbies.length === 0) {
     hobbiesWrap.classList.add("wrong-input");
+  } else {
+    hobbiesWrap.classList.remove("wrong-input");
   }
   if (!imageSrc.value) {
-    imageSrc.classList.add("wrong-input");
-  } else if(hobbies.length && imageSrc.value){
+    imageSrc.classList.remove("is-valid");
+    imageSrc.classList.add("is-invalid");
+  } else if (imageSrc.value) {
+    imageSrc.classList.remove("is-invalid");
+    imageSrc.classList.add("is-valid");
+  }
+  if (hobbies.length && imageSrc.value) {
     localData.phase3.hobbies = hobbies;
     localData.phase3.imgSrc = imageSrc.value;
     localStorage.setItem("wizardDetailsObj", JSON.stringify(localData));
-    const update = formFlow
-    update.phase3= true
+    const update = formFlow;
+    update.phase3 = true;
     localStorage.setItem("formFlow", JSON.stringify(update));
     window.location.replace("phase4.html");
   }
 });
 
 prevBtn.addEventListener("click", () => {
-    const update = formFlow
-    update.phase3 = false
-    update.phase2 = false
-    localStorage.setItem('formFlow',JSON.stringify(update))
+  const update = formFlow;
+  update.phase3 = false;
+  update.phase2 = false;
+  localStorage.setItem("formFlow", JSON.stringify(update));
   window.location.replace("phase2.html");
 });
