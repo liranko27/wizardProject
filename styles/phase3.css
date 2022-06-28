@@ -5,6 +5,15 @@
     overflow-y: scroll;
 }
 
+.box-wrap {
+    margin: 5rem 2rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.progress-bar {
+    width: 76%;
+}
+
 @media (max-width:1400px) {
     .hobbies-wrap {
         display: block;
@@ -36,4 +45,5 @@ a {
 .img-prev {
     max-width: 20rem;
     border-radius: 50px;
+    margin-top: 1rem;
 }
