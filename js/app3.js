@@ -66,6 +66,9 @@ continueBtn.addEventListener("click", () => {
     localData.phase3.hobbies = hobbies;
     localData.phase3.imgSrc = imageSrc.value;
     localStorage.setItem("wizardDetailsObj", JSON.stringify(localData));
+    const update = formFlow
+    update.phase3= true
+    localStorage.setItem("formFlow", JSON.stringify(update));
     window.location.replace("phase4.html");
   }
 });
