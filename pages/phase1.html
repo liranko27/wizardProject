@@ -2,90 +2,93 @@
 <html>
 
 <head>
-
+    <link rel="stylesheet" href="../styles/phase1.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <div class="row mx-0">
-                <div class="col text-bg-primary rounded-top">
-                    <h3>Phase 1</h3>
+    <div class="box-wrap">
+
+
+        <header>
+            <div class="container">
+                <div class="row mx-0">
+                    <div class="col text-bg-primary rounded-top">
+                        <h3>Phase 1</h3>
+                    </div>
+                    <div class="col ">
+                        <h3>Phase 2</h3>
+                    </div>
+                    <div class="col">
+                        <h3>Phase 3</h3>
+                    </div>
+                    <div class="col">
+                        <h3>Phase 4</h3>
+                    </div>
                 </div>
-                <div class="col ">
-                    <h3>Phase 2</h3>
-                </div>
-                <div class="col">
-                    <h3>Phase 3</h3>
-                </div>
-                <div class="col">
-                    <h3>Phase 4</h3>
+                <div class="row-fluid">
+                    <div class="progress">
+                        <div class="progress-bar w-25" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                            aria-valuemax="100"></div>
+                    </div>
                 </div>
             </div>
-            <div class="row-fluid">
-                <div class="progress">
-                    <div class="progress-bar w-25" role="progressbar" aria-valuenow="50" aria-valuemin="0"
-                        aria-valuemax="100"></div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <main class="container mt-5 p-5">
-        <div class="container">
-            <form>
-                <div class="row">
-                    <div class="col-4">
-                        <div>
-                            <label class="form-label" for="fullNameInput">Full Name</label>
-                            <input class="form-control" type="text" placeholder="Example: John Doe" id="fullNameInput"
-                                required>
-                            <div class="invalid-feedback">
-                                Invalid name , make sure that :
-                                <br>*First name and last name must be at least 2 letters
-                                <br>*You have entered letters only
+        </header>
+        <main class="container mt-5 p-5">
+            <div class="container">
+                <form>
+                    <div class="row">
+                        <div class="col-7">
+                            <div>
+                                <label class="form-label" for="fullNameInput">Full Name</label>
+                                <input class="form-control" type="text" placeholder="Example: John Doe"
+                                    id="fullNameInput" required>
+                                <div class="invalid-feedback">
+                                    Invalid name , make sure that :
+                                    <br>*First name and last name must be at least 2 letters
+                                    <br>*You have entered letters only
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-4">
-                        <div class="mt-4">
-                            <label for="emailInput" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="emailInput" placeholder="name@example.com"
-                                required>
-                            <div class="invalid-feedback">
-                                Invalid Email
+                    <div class="row">
+                        <div class="col-7">
+                            <div class="mt-4">
+                                <label for="emailInput" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="emailInput" placeholder="name@example.com"
+                                    required>
+                                <div class="invalid-feedback">
+                                    Invalid Email
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-4">
-                        <div class="my-5">
-                            <label for="birthdateInput">Birth Date:</label>
-                            <input type="date" id="birthDateInput" min="1902-01-01" max="2022-06-06" required>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="my-5">
+                                <label for="birthdateInput">Birth Date:</label>
+                                <input type="date" id="birthDateInput" min="1902-01-01" max="2022-06-06" required>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row justify-content-between mt-5">
-                    <div class="col-2 justify-content-start d-flex">
-                        <button type="button" class="btn btn-dark" id="previousButton">Previous</button>
-                    </div>
-                    <div class="col-2 justify-content-end d-flex">
-                        <button type="button" class="btn btn-primary" id="nextButton">Next</button>
+                    <div class="row justify-content-between mt-5">
+                        <div class="col-2 justify-content-start d-flex">
+                            <button type="button" class="btn btn-dark" id="previousButton">Previous</button>
+                        </div>
+                        <div class="col-2 justify-content-end d-flex">
+                            <button type="button" class="btn btn-primary" id="nextButton">Next</button>
 
-                    </div>
-            </form>
-        </div>
+                        </div>
+                </form>
+            </div>
 
 
-        </div>
+    </div>
     </main>
-
+    </div>
     <script src="..\js\app.js"></script>
     <script src="..\js\app1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
