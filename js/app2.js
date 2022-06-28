@@ -59,6 +59,7 @@ const updateDetailsLocalStorage = () => {
 };
 const updateFormFlowLocalStorage = (valid) => {
   valid ? (formFlow.phase2 = true) : (formFlow.phase2 = false);
+  localStorage.setItem("formFlow", JSON.stringify(formFlow));
 };
 const isFormValid = () => {
   markInputIfValid(cityInput, isCityInputValid);
