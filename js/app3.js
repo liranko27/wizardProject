@@ -6,16 +6,9 @@ const continueBtn = document.querySelector('.continue-btn')
 const prevBtn = document.querySelector('.prev-btn')
 
 const formFlow = JSON.parse(localStorage.getItem("formFlow"));
-const wizardDetailsObj = JSON.parse(localStorage.getItem("wizardDetailsObj"));
 
 if (!formFlow) window.location.replace("../pages/welcome.html");
 
-for (const page in formFlow) {
-  if (!formFlow[page]) {
-    window.location.replace(`../pages/${page}.html`);
-    break;
-  }
-}
 const updateInputsValues = () => {
     if(wizardDetailsObj.phase3.imgSrc !== ''){
         imageSrc.value = wizardDetailsObj.phase3.imgSrc;
