@@ -20,8 +20,6 @@ const updateSynchronousInputsValues = () => {
   numberInput.value = wizardDetailsObj.phase2.num;
 };
 
-// updateSynchronousInputsValues();
-
 const getData = async () => {
   const res = await fetch("../data/cities.json");
   const data = await res.json();
