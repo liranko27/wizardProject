@@ -15,14 +15,14 @@ for (const page in formFlow) {
 }
 
 const updateProgressBar = () => {
-  let barPrecentage = 0;
+  let barPrecentage = 25;
   for (const page in formFlow) {
     if (page === "welcome") continue;
     if (formFlow[page]) barPrecentage += 25;
   }
 
   progressBar.classList.remove(progressBar.classList[1]);
-  progressBar.classList.add(barPrecentage);
+  progressBar.classList.add(`w-${barPrecentage}`);
   progressBar.ariaValueNow = barPrecentage;
 };
 updateProgressBar();
