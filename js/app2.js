@@ -5,7 +5,6 @@ const streetInput = document.querySelector("#street_input");
 const numberInput = document.querySelector("#number_input");
 
 const inputsArray = [streetInput, numberInput, cityInput];
-const wizardDetailsObj = JSON.parse(localStorage.getItem("wizardDetailsObj"));
 
 const createCitiesOptionsElements = (data) => {
   for (const city of data) {
