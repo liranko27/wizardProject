@@ -1,6 +1,8 @@
 .hobbies-wrap {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    height: 10rem;
+    overflow-y: scroll;
 }
 
 @media (max-width:770px) {
