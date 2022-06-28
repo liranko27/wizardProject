@@ -26,6 +26,7 @@ function printHobbies(hobbies) {
   hobbiesWrap.innerHTML = "";
   hobbies.forEach((hobby) => {
     const divWrap = document.createElement("div");
+    divWrap.classList.add('d-flex')
     const checkboxInput = document.createElement("input");
     checkboxInput.type = "checkbox";
     checkboxInput.id = hobby.name;
