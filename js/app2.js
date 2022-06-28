@@ -1,24 +1,29 @@
-// const getData = async () => {
-//   const res = await fetch("../data/cities.json");
-
-//   // const data = await res.json();
-//   // console.log(data);
-// };
-// getData();
 const cityInput = document.querySelector("#city_input");
 const nextBtn = document.querySelector("#next_btn");
 const previousBtn = document.querySelector("#previous_btn");
 const streetInput = document.querySelector("#street_input");
 const numberInput = document.querySelector("#number_input");
+
 const inputsArray = [streetInput, numberInput, cityInput];
 const wizardDetailsObj = JSON.parse(localStorage.getItem("wizardDetailsObj"));
 
-// for (const page in formFlow) {
-//   if (!formFlow[page]) {
-//     window.location.replace(`../pages/${page}.html`);
-//     break;
-//   }
-// }
+const createCitiesOptionsElements = (data) => {
+  for (const city of data) {
+    const option = document.createElement("option");
+    option.value = city;
+    option.innerText = city;
+    cityInput.appendChild(option);
+  }
+};
+
+const getData = async () => {
+  const res = await fetch("../data/cities.json");
+  const data = await res.json();
+  return data;
+};
+
+getData().then(createCitiesOptionsElements);
+
 const updateInputsValues = () => {
   cityInput.value = wizardDetailsObj.phase2.city;
   streetInput.value = wizardDetailsObj.phase2.street;
@@ -31,7 +36,7 @@ const isCityInputValid = () => {
   return cityInput.value;
 };
 const isStreetValid = () => {
-  return streetInput.value.match(/^[a-zA-Z\.-]+$/);
+  return streetInput.value.match(/^[a-zA-Z\.\s\-]+$/);
 };
 const isNumberValid = () => {
   return Number(numberInput.value) > 0;
@@ -61,22 +66,21 @@ const isFormValid = () => {
   markInputIfValid(numberInput, isNumberValid);
   for (const input of inputsArray) {
     if (input.classList.contains("is-invalid")) {
-      updateFormFlowLocalStorage(false);
       return;
     }
   }
-  updateFormFlowLocalStorage(true);
   return true;
 };
 
 nextBtn.addEventListener("click", () => {
   if (!isFormValid()) return;
+  updateFormFlowLocalStorage(true);
   updateDetailsLocalStorage();
   window.location.replace("../pages/phase3.html");
 });
 
 previousBtn.addEventListener("click", () => {
-  isFormValid();
+  updateFormFlowLocalStorage(false);
   updateDetailsLocalStorage();
   window.location.replace("../pages/phase1.html");
 });
