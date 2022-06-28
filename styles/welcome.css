@@ -7,6 +7,10 @@ header {
     padding-top: 2rem;
 }
 
+img {
+    width: 50%;
+}
+
 .card-body {
     text-align: center;
 }
