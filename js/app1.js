@@ -3,6 +3,7 @@ const nextButton = document.querySelector("#nextButton");
 const previousButton = document.querySelector("#previousButton");
 const emailInput = document.querySelector("#emailInput");
 const birthDateInput = document.querySelector("#birthDateInput");
+const birthDateError = document.querySelector("#birthDateError");
 
 const inputsArray = [fullNameInput, emailInput, birthDateInput];
 
@@ -86,9 +87,15 @@ function checkIfAllValid() {
   if (birthDateValid(birthDateInput.value)) {
     birthDateInput.classList.remove("is-invalid");
     birthDateInput.classList.add("is-valid");
+    birthDateInput.style.color="#198754"
+    birthDateInput.style.borderColor="#198754"
+    birthDateError.textContent=""
   } else {
     birthDateInput.classList.remove("is-valid");
     birthDateInput.classList.add("is-invalid");
+    birthDateInput.style.color="#dc3545"
+    birthDateInput.style.borderColor="#dc3545"
+    birthDateError.textContent="Invalid Birth date ! \nyou must be at least 18 years old !"
   }
 
   for (const input of inputsArray) {
