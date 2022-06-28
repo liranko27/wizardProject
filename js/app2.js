@@ -15,6 +15,13 @@ const createCitiesOptionsElements = (data) => {
     cityInput.appendChild(option);
   }
 };
+const updateSynchronousInputsValues = () => {
+  cityInput.value = wizardDetailsObj.phase2.city;
+  streetInput.value = wizardDetailsObj.phase2.street;
+  numberInput.value = wizardDetailsObj.phase2.num;
+};
+
+// updateSynchronousInputsValues();
 
 const getData = async () => {
   const res = await fetch("../data/cities.json");
@@ -22,15 +29,9 @@ const getData = async () => {
   return data;
 };
 
-getData().then(createCitiesOptionsElements);
-
-const updateInputsValues = () => {
-  cityInput.value = wizardDetailsObj.phase2.city;
-  streetInput.value = wizardDetailsObj.phase2.street;
-  numberInput.value = wizardDetailsObj.phase2.num;
-};
-
-updateInputsValues();
+getData()
+  .then(createCitiesOptionsElements)
+  .then(() => updateSynchronousInputsValues());
 
 const isCityInputValid = () => {
   return cityInput.value;
