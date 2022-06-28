@@ -58,7 +58,7 @@ const updateDetailsLocalStorage = () => {
   localStorage.setItem("wizardDetailsObj", JSON.stringify(wizardDetailsObj));
 };
 const updateFormFlowLocalStorage = (valid) => {
-  valid ? (formFlow.phase2 = true) : (formFlow.phase2 = false);
+  valid ? (formFlow.phase2 = true) : (formFlow.phase1 = false);
   localStorage.setItem("formFlow", JSON.stringify(formFlow));
 };
 const isFormValid = () => {
