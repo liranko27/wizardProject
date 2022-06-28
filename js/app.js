@@ -1,6 +1,7 @@
 //Progress bar check
 const progressBar = document.querySelector(".progress-bar");
 const formFlow = JSON.parse(localStorage.getItem("formFlow"));
+const wizardDetailsObj = JSON.parse(localStorage.getItem("wizardDetailsObj"));
 
 if (!formFlow) window.location.replace("../pages/welcome.html");
 
