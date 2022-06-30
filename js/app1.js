@@ -4,6 +4,7 @@ const previousButton = document.querySelector("#previousButton");
 const emailInput = document.querySelector("#emailInput");
 const birthDateInput = document.querySelector("#birthDateInput");
 const birthDateError = document.querySelector("#birthDateError");
+const premiumCheckboxInput = document.querySelector("#premiumCheckbox")
 
 const inputsArray = [fullNameInput, emailInput, birthDateInput];
 
@@ -60,6 +61,7 @@ const updateDetailsLocalStorage = () => {
   wizardDetailsObj.phase1.fullName = fullNameInput.value;
   wizardDetailsObj.phase1.email = emailInput.value;
   wizardDetailsObj.phase1.birthDate = birthDateInput.value;
+  premiumDetails.isPremium =premiumCheckboxInput.checked;
   localStorage.setItem("wizardDetailsObj", JSON.stringify(wizardDetailsObj));
 };
 const updateFormFlowLocalStorage = (valid) => {
