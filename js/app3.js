@@ -49,7 +49,7 @@ imageSrc.addEventListener("change", () => {
 
 continueBtn.addEventListener("click", () => {
   const hobbies = [];
-  const localData = JSON.parse(localStorage.getItem("wizardDetailsObj"));
+
   const checkedInputs = document.querySelectorAll(
     ".hobbies-wrap input:checked"
   );
@@ -69,9 +69,9 @@ continueBtn.addEventListener("click", () => {
     imageSrc.classList.add("is-valid");
   }
   if (hobbies.length && imageSrc.value) {
-    localData.phase3.hobbies = hobbies;
-    localData.phase3.imgSrc = imageSrc.value;
-    localStorage.setItem("wizardDetailsObj", JSON.stringify(localData));
+    wizardDetailsObj.phase3.hobbies = hobbies;
+    wizardDetailsObj.phase3.imgSrc = imageSrc.value;
+    localStorage.setItem("wizardDetailsObj", JSON.stringify(wizardDetailsObj));
     const update = formFlow;
     update.phase3 = true;
     localStorage.setItem("formFlow", JSON.stringify(update));

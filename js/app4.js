@@ -4,7 +4,6 @@ const newWizardBtn = document.querySelector("#new_wizard_btn");
 const prevBtn = document.querySelector("#previous_btn");
 
 const updateWizardDetailsSummary = () => {
-  //add class invalid in phase 3
   const fullNameCardTitle = document.createElement("h5");
   fullNameCardTitle.classList.add("card-title");
   fullNameCardTitle.innerText = wizardDetailsObj.phase1.fullName;
