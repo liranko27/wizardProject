@@ -2,8 +2,13 @@ const cardBody = document.querySelector(".card-body");
 const cardImg = document.querySelector("#card_img");
 const newWizardBtn = document.querySelector("#new_wizard_btn");
 const prevBtn = document.querySelector("#previous_btn");
+const oneImgContainer = document.querySelector("#one_image_container");
+const imageGalleryContainer = document.querySelector(
+  "#image_gallery_container"
+);
+const imagesContainer = document.querySelector(".carousel-inner");
 
-const updateWizardDetailsSummary = () => {
+const showWizardDetailsSummary = (isPremium) => {
   const fullNameCardTitle = document.createElement("h5");
   fullNameCardTitle.classList.add("card-title");
   fullNameCardTitle.innerText = wizardDetailsObj.phase1.fullName;
@@ -21,7 +26,6 @@ const updateWizardDetailsSummary = () => {
   hobbiesText.innerText = `Hobbies: ${wizardDetailsObj.phase3.hobbies.join(
     ", "
   )}`;
-  cardImg.src = wizardDetailsObj.phase3.imgSrc;
   cardBody.append(
     fullNameCardTitle,
     emailCardText,
@@ -29,8 +33,36 @@ const updateWizardDetailsSummary = () => {
     addressText,
     hobbiesText
   );
+  if (isPremium) {
+    const linkedInLink = document.createElement("p");
+    linkedInLink.classList.add("card-text");
+    linkedInLink.innerText = `LinkedIn Link: ${wizardDetailsObj.phase3.linkedIn}`;
+    const subscriptionPlan = document.createElement("p");
+    subscriptionPlan.classList.add("card-text");
+    subscriptionPlan.innerText = `Subscription Plan: ${premiumDetails.plan}`;
+    const attachedResume = document.createElement("p");
+    attachedResume.classList.add("card-text");
+    attachedResume.innerText = `Attached Resume: ${wizardDetailsObj.phase3.resume}`;
+
+    for (const img of wizardDetailsObj.phase3.imgSrc) {
+      const carouselImg = document.createElement("div");
+      const imgEl = document.createElement("img");
+      imgEl.src = img;
+      imgEl.classList = `d-block w-100`;
+      carouselImg.appendChild(imgEl);
+      imagesContainer.appendChild(carouselImg);
+    }
+    imageGalleryContainer.classList.remove("visually-hidden");
+    cardBody.append(linkedInLink, subscriptionPlan, attachedResume);
+  } else {
+    cardImg.src = wizardDetailsObj.phase3.imgSrc;
+    oneImgContainer.classList.remove("visually-hidden");
+  }
 };
-updateWizardDetailsSummary();
+
+premiumDetails.isPremium
+  ? showWizardDetailsSummary(true)
+  : showWizardDetailsSummary(false);
 
 const updateFormFlowPrevBtnClicked = () => {
   formFlow.phase3 = false;

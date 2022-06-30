@@ -1,5 +1,6 @@
 const formFlow = JSON.parse(localStorage.getItem("formFlow"));
 const wizardDetailsObj = JSON.parse(localStorage.getItem("wizardDetailsObj"));
+const premiumDetails = JSON.parse(localStorage.getItem("premiumDetails"));
 
 const redirectToValidPage = () => {
   //checks if there is no formFlow object in local storage which means the user never passed through the welcome phase
@@ -40,7 +41,7 @@ function alphanumeric(string) {
 
 function fullNameValid(fullName) {
   const name = fullName.split(" ");
-  console.log(name);
+
   const firstName = name[0];
   const lastName = name[1];
 
