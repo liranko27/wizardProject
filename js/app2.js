@@ -30,15 +30,7 @@ getData()
   .then(createCitiesOptionsElements)
   .then(() => updateSynchronousInputsValues());
 
-const isCityInputValid = () => {
-  return cityInput.value;
-};
-const isStreetValid = () => {
-  return streetInput.value.match(/^[a-zA-Z\.\s\-]+$/);
-};
-const isNumberValid = () => {
-  return Number(numberInput.value) > 0;
-};
+
 
 const markInputIfValid = (input, valid) => {
   if (valid()) {
