@@ -41,7 +41,7 @@ function alphanumeric(string) {
 
 function fullNameValid(fullName) {
   const name = fullName.split(" ");
-  console.log(name);
+
   const firstName = name[0];
   const lastName = name[1];
 
