@@ -8,6 +8,7 @@ continueBtn.addEventListener('click',()=>{
         console.log('Yes')
         createFormFlowObj()
         initWizardDetailsObj()
+        insertPremium()
         window.location.replace('phase1.html')
     }
     else{
@@ -44,4 +45,12 @@ function initWizardDetailsObj(){
         },
     }
     localStorage.setItem('wizardDetailsObj',JSON.stringify(wizardDetailsObj))
+}
+
+function insertPremium(){
+    const premiumDetails= {
+        isPremium :false,
+        plan:''
+    }
+    localStorage.setItem('premiumDetails',JSON.stringify(premiumDetails))
 }
